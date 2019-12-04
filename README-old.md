@@ -139,7 +139,7 @@ First let us create a separate namespace.
 
 Now, let us create a role binding in psp namespace. 
 
-`kubectl apply -f rb-permissive.yml`
+`kubectl apply -f rb-permissive-ns-psp.yml`
 
 `kubectl get rolebinding -n psp`
 
@@ -197,6 +197,3 @@ Time to test -
 Clean up -
 
 `kubectl delete deploy $(kubectl get deploy | awk '{print $1}')`
-
-
-# psp-demo

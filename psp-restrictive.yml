@@ -1,0 +1,30 @@
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: restrictive
+  labels:
+    type: madhav-psp
+spec:
+  privileged: false
+  hostNetwork: false
+  allowPrivilegeEscalation: false
+  defaultAllowPrivilegeEscalation: false
+  hostPID: false
+  hostIPC: false
+  runAsUser:
+    rule: RunAsAny
+  fsGroup:
+    rule: RunAsAny
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  volumes:
+  - 'configMap'
+  - 'downwardAPI'
+  - 'emptyDir'
+  - 'persistentVolumeClaim'
+  - 'secret'
+  - 'projected'
+  allowedCapabilities:
+  - '*'

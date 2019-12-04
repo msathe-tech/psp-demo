@@ -1,0 +1,14 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: psp-default
+  labels:
+    type: madhav-psp
+subjects:
+- kind: Group
+  name: system:serviceaccounts
+  namespace: kube-system
+roleRef:
+  kind: ClusterRole
+  name: psp-restrictive
+  apiGroup: rbac.authorization.k8s.io

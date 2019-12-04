@@ -15,12 +15,16 @@ Create a cluster with 'small-psp' plan.
 There is one way to validate that the PSP is working in your cluster.
 Simply try creating a deployment and see if Pods creation is successful.
 
-`kubectl apply -f nginx-deployment.yaml`
+`kubectl apply -f nginx-deployment.yml`
 
 `kubectl get po,rs`
 Here you will see only Replica Set.
 
 `kubectl describe rs $(kubectl get rs | grep nginx-deployment | awk '{print $1}')`
+
+Delete the deployment once verified - 
+
+`kubectl delete deploy nginx-deployment`
 
 ### Pod creation by admin user 
 

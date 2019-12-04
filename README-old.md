@@ -59,13 +59,13 @@ In the following sections we will walk through the process of setting up and usi
 
 ## Step 3 - cleanup 
 First we clean up the PSPs setup by PKS install.
-List all PSPs setup in the cluster, find the PSPs starting with 'psp' and delete them. 
+List all PSPs setup in the cluster, find the PSPs starting with 'pks' and delete them. 
 
 `kubectl get psp`
 
-`kubectl get psp | grep psp | awk '{print $1}'`
+`kubectl get psp | grep pks | awk '{print $1}'`
 
-`kubectl delete psp $(kubectl get psp | grep psp | awk '{print $1}')`
+`kubectl delete psp $(kubectl get psp | grep pks | awk '{print $1}')`
 
 ## Step 4 - create your own PSP resources
 Create two PSPs, one restrictive and one permissive.

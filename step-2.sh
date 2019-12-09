@@ -35,7 +35,7 @@ read var
 echo "--kubectl get po"
 kubectl get po
 echo ""
-echo "--Can you the Pod? YES!"
+echo "--Can you see the Pod? YES!"
 echo ""
 echo "--Enter to proceed and delete the pod"
 read var

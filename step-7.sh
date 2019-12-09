@@ -10,10 +10,13 @@ kubectl apply -f nginx-deployment-hostnw.yml
 
 echo ""
 echo "--Verify if the new pod got created."
+echo "--Enter to continue"
+read var
 echo "--kubectl get rs,po"
 kubectl get rs,po
 
 echo ""
+echo "--Do you see the Pod? No!"
 echo "--Check why the pod creation failed for new deployment."
 echo "--Enter to continue"
 read var
@@ -25,6 +28,7 @@ kubectl describe rs $(kubectl get rs | grep nginx-deployment-hostnw | awk '{prin
 echo ""
 echo "--This is expected. The replicaset controller only has access to 'restrictive' pod security policy."
 echo "--You shouldn't require to use host's network for most of your applications."
+echo "--If you need elevated privileges then you will need to enable PSP with elevated privilegs and give Role a 'use' access to that PSP."
 
 echo "--Enter to delete the deployment"
 read var
@@ -38,6 +42,7 @@ read var
 echo "--kubectl get deploy,rs,po"
 kubectl get deploy,rs,po
 
+echo ""
 echo "--Enter to continue"
 read var
 
